@@ -1,45 +1,62 @@
 # GitHub Daily
 
-> Get a personalized daily brief of GitHub trending repos and latest open-source releases.
+[中文文档](README.zh-CN.md) · English
 
-一个面向个人开发者的 GitHub 每日情报工具：每天筛选值得关注的热门项目与新发布成果，并以轻量 Dashboard 归档展示。
+> A personalized daily brief of GitHub trends and new open-source releases.
 
-## 功能
+GitHub Daily finds noteworthy repositories and releases, ranks them using star growth and your interests, archives each daily brief, and can deliver it to Telegram, Feishu, or email.
 
-- 今日爆发：按最近 7 天新建项目的 Star 数发现潜在热门仓库。
-- 最新成果：从热门项目中提取最新 Release。
-- 个人兴趣：UI 预置 AI Coding、MCP、Agents、Rust 等关注信号。
-- 自动更新：GitHub Actions 每日 00:00 UTC 生成数据并提交到仓库，并按日期永久归档日报。
+## Features
 
-## 快速开始
+- **Trending projects** — discovers repositories created in the previous seven days.
+- **Latest releases** — extracts the latest release from the strongest candidates.
+- **24-hour star growth** — stores daily star snapshots and prioritizes repositories with recent momentum.
+- **Personalization** — assign a 0–5 weight to interests such as AI Coding, MCP, Agents, and Rust.
+- **Read memory** — mark a repository as read to hide it from future recommendations in your browser.
+- **Daily archive** — GitHub Actions stores an immutable JSON brief for every generated date.
+- **Delivery** — optionally send the brief to Telegram, Feishu, and/or Resend email.
+
+## Quick start
 
 ```bash
 npm run dev
 ```
 
-访问 `http://localhost:3000`。初始页面使用示例日报；手动刷新真实数据：
+Open `http://localhost:3000`. Generate the daily data manually with:
 
 ```bash
 npm run digest
 ```
 
-可选地设置 `GITHUB_TOKEN`，以获得更高 GitHub API 限额。当天数据位于 `public/data/digest.json`，过往日报保存在 `public/data/history/YYYY-MM-DD.json`。
-如需重放某天的数据，可运行 `DIGEST_DATE=2025-08-20 npm run digest`（PowerShell：`$env:DIGEST_DATE='2025-08-20'; npm run digest`）。
+Set `GITHUB_TOKEN` for a higher GitHub API rate limit. The current brief is written to `public/data/digest.json`; dated archives are saved in `public/data/history/YYYY-MM-DD.json`.
 
-## 后续方向
+To replay a date, run `DIGEST_DATE=2025-08-20 npm run digest`. In PowerShell:
 
-## 个性化与推送
+```powershell
+$env:DIGEST_DATE='2025-08-20'; npm run digest
+```
 
-- 点击项目卡片的“标为已读”后，该项目会保存在浏览器中且不再推荐；可清除站点数据以重置。
-- 在“编辑兴趣偏好”中为每个主题设置 0–5 权重，列表会根据项目名称和描述中的关键词重新排序。
-- 每日脚本会保存仓库 Star 快照，并在下一次运行时计算 24 小时增长量作为排序优先级。
+## Notifications
 
-推送由 `npm run notify` 负责，未配置任一渠道时会安全跳过。把所需凭据设为 GitHub Actions Secrets（不要提交 `.env`）：
+`npm run notify` delivers the generated brief. It exits safely without sending anything when no provider is configured. Copy [.env.example](.env.example) for local reference, and configure the same values as GitHub Actions Secrets for scheduled delivery.
 
-| 渠道 | 必需 Secrets |
+| Channel | Required Secrets |
 | --- | --- |
-| Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` |
-| 飞书机器人 | `FEISHU_WEBHOOK_URL` |
-| 邮件（Resend） | `RESEND_API_KEY`、`EMAIL_FROM`、`EMAIL_TO` |
+| Telegram | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` |
+| Feishu custom bot | `FEISHU_WEBHOOK_URL` |
+| Email via Resend | `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_TO` |
 
-可复制 [.env.example](.env.example) 作为本地配置参考。Telegram 使用 Bot API 的 `sendMessage`；邮件通过 Resend 的发送接口，发件域名需在 Resend 验证。[Telegram Bot API](https://core.telegram.org/bots/api) 和 [Resend Email API](https://resend.com/docs/api-reference/emails/send-email) 提供了相应说明。
+**Configure delivery**
+
+1. Go to **Settings → Secrets and variables → Actions → New repository secret** and add each secret from the table above.
+2. Open the **Actions** tab, select *Generate daily digest*, and click **Run workflow** to trigger a delivery immediately and verify the setup.
+
+The scheduled workflow runs at 00:00 UTC (08:00 China Standard Time), archives the digest, then sends it through every configured channel. Each project and release in the notification includes its GitHub link.
+
+**Run your own delivery**
+
+Fork the repository and add your own secrets to the fork — forks never inherit the upstream secrets. A fork of a public repository has Actions disabled by default, and its scheduled workflow is disabled as well; enable both from the fork's Actions tab. If this repository is enabled as a template, **Use this template** creates an independent repository without these limitations.
+
+## Data and privacy
+
+Interest weights and read history are stored only in the browser's local storage. Delivery secrets must never be committed; store them in GitHub Actions Secrets instead. Secrets are encrypted and write-only: even in a public repository no one else can read them, and forks never inherit them. The workflow runs only on schedule and manual triggers — never on pull requests — so third-party pull requests cannot access your secrets.

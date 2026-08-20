@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 
 const digest = JSON.parse(await readFile('public/data/digest.json', 'utf8'));
 const date = new Date(digest.generatedAt).toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' });
-const lines = [`GitHub Daily · ${date}`, '', '🔥 今日趋势', ...digest.trending.slice(0, 8).map((repo, index) => `${index + 1}. ${repo.name} · ★ ${repo.stars}${repo.starDelta24h ? `（+${repo.starDelta24h}/24h）` : ''}\n${repo.description || ''}`), '', '✦ 最新发布', ...digest.releases.slice(0, 5).map(item => `• ${item.name} — ${item.detail}`)];
+const lines = [`GitHub Daily · ${date}`, '', '🔥 今日趋势', ...digest.trending.slice(0, 8).map((repo, index) => `${index + 1}. ${repo.name} · ★ ${repo.stars}${repo.starDelta24h ? `（+${repo.starDelta24h}/24h）` : ''}\n${repo.description || ''}\nhttps://github.com/${repo.name}`), '', '✦ 最新发布', ...digest.releases.slice(0, 5).map(item => `• ${item.name} — ${item.detail}\nhttps://github.com/${item.name}/releases`)];
 const text = lines.join('\n');
 const html = `<h1>GitHub Daily · ${date}</h1>${digest.trending.slice(0, 8).map(repo => `<p><a href="https://github.com/${repo.name}"><strong>${repo.name}</strong></a> · ★ ${repo.stars}<br>${repo.description || ''}</p>`).join('')}<h2>最新发布</h2><ul>${digest.releases.slice(0, 5).map(item => `<li><a href="https://github.com/${item.name}/releases">${item.name}</a> — ${item.detail}</li>`).join('')}</ul>`;
 async function post(url, options) { const response = await fetch(url, options); if (!response.ok) throw new Error(`${response.status} ${await response.text()}`); }
