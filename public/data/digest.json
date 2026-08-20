@@ -1,10 +1,70 @@
 {
-  "generatedAt": "2026-08-20T10:12:41.421Z",
+  "generatedAt": "2026-08-20T10:16:21.825Z",
   "trending": [
+    {
+      "name": "s1dashu/ip-as-logo-skill",
+      "icon": "◇",
+      "score": "+3 ★ / 24h",
+      "description": "A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.",
+      "stars": "2.7k",
+      "starDelta24h": 3,
+      "language": "Open source",
+      "delta": "增长中"
+    },
+    {
+      "name": "Spielewoy/autoprompt-skill",
+      "icon": "◈",
+      "score": "+3 ★ / 24h",
+      "description": "Autoprompt is a coding-agent skill that cuts failures by 45% on agentic coding tasks.",
+      "stars": "394",
+      "starDelta24h": 3,
+      "language": "JavaScript",
+      "delta": "增长中"
+    },
+    {
+      "name": "vvxw/deploy-vercel",
+      "icon": "◈",
+      "score": "+2 ★ / 24h",
+      "description": "Install Command：npm install",
+      "stars": "659",
+      "starDelta24h": 2,
+      "language": "JavaScript",
+      "delta": "增长中"
+    },
+    {
+      "name": "dsh-market/dsh-market",
+      "icon": "⌘",
+      "score": "+1 ★ / 24h",
+      "description": "The plugin market inside DeepSeek Harness — browse, search, one-click install · DSH 可视化插件市场",
+      "stars": "1.4k",
+      "starDelta24h": 1,
+      "language": "TypeScript",
+      "delta": "增长中"
+    },
+    {
+      "name": "ZSvirt/zsvirt",
+      "icon": "◇",
+      "score": "+1 ★ / 24h",
+      "description": "Core IaaS engine and cloud infrastructure foundation of ZSvirt",
+      "stars": "1.1k",
+      "starDelta24h": 1,
+      "language": "Java",
+      "delta": "增长中"
+    },
+    {
+      "name": "CopilotKit/openbot",
+      "icon": "⌘",
+      "score": "+1 ★ / 24h",
+      "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
+      "stars": "1.0k",
+      "starDelta24h": 1,
+      "language": "TypeScript",
+      "delta": "增长中"
+    },
     {
       "name": "yjh051108/dsh-routing-suite",
       "icon": "◇",
-      "score": "Top 1",
+      "score": "Top 7",
       "description": "dsh-routing-suite — injector + router-standard kit: install the runtime injector first, then the task-aware reasoning-mode router preset (measured P1-P23).",
       "stars": "6.4k",
       "starDelta24h": 0,
@@ -14,7 +74,7 @@
     {
       "name": "xiaobright/dsh-anchored-standard",
       "icon": "◈",
-      "score": "Top 2",
+      "score": "Top 8",
       "description": "Two-phase DeepSeek Harness preset: Minimal-aligned bootstrap, then full Standard tools (Project2 98/99)",
       "stars": "3.7k",
       "starDelta24h": 0,
@@ -24,7 +84,7 @@
     {
       "name": "yetone/cumora",
       "icon": "⌘",
-      "score": "Top 3",
+      "score": "Top 9",
       "description": "Where agent teams gather. Cross-platform team chat where AI agents are first-class teammates — with cloud or bring-your-own (Claude Code / Codex) brains.",
       "stars": "2.7k",
       "starDelta24h": 0,
@@ -32,29 +92,9 @@
       "delta": "新成果"
     },
     {
-      "name": "s1dashu/ip-as-logo-skill",
-      "icon": "◇",
-      "score": "Top 4",
-      "description": "A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.",
-      "stars": "2.7k",
-      "starDelta24h": 0,
-      "language": "Open source",
-      "delta": "新成果"
-    },
-    {
-      "name": "dsh-market/dsh-market",
-      "icon": "⌘",
-      "score": "Top 5",
-      "description": "The plugin market inside DeepSeek Harness — browse, search, one-click install · DSH 可视化插件市场",
-      "stars": "1.4k",
-      "starDelta24h": 0,
-      "language": "TypeScript",
-      "delta": "新成果"
-    },
-    {
       "name": "cinderline/northcinder",
       "icon": "◈",
-      "score": "Top 6",
+      "score": "Top 10",
       "description": "Buyer-run, ad-neutral shopping-agent MCP software with deterministic ranking, signed purchase mandates, and a local audit trail.",
       "stars": "1.2k",
       "starDelta24h": 0,
@@ -62,19 +102,9 @@
       "delta": "新成果"
     },
     {
-      "name": "ZSvirt/zsvirt",
-      "icon": "◇",
-      "score": "Top 7",
-      "description": "Core IaaS engine and cloud infrastructure foundation of ZSvirt",
-      "stars": "1.1k",
-      "starDelta24h": 0,
-      "language": "Java",
-      "delta": "新成果"
-    },
-    {
       "name": "alchaincyf/deepseek-harness-orange-book",
       "icon": "◇",
-      "score": "Top 8",
+      "score": "Top 11",
       "description": "DeepSeek Harness橙皮书《从开机到拆开》：完整系统提示词、129行启动清单、三份原始会话日志——官方文档没有的一手实测。PDF/EPUB/HTML免费下载",
       "stars": "1.1k",
       "starDelta24h": 0,
@@ -84,41 +114,11 @@
     {
       "name": "Tiger3807861189/DeepSeek-V4-J-Space-Capability-Realization-Report",
       "icon": "◇",
-      "score": "Top 9",
+      "score": "Top 12",
       "description": "DeepSeek V4 × J-Space capability realization report — benchmark evidence that J-Space reduces capability-realization loss on DeepSeek V4 (Flash/Pro).",
       "stars": "1.0k",
       "starDelta24h": 0,
       "language": "Open source",
-      "delta": "新成果"
-    },
-    {
-      "name": "CopilotKit/openbot",
-      "icon": "⌘",
-      "score": "Top 10",
-      "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
-      "stars": "1.0k",
-      "starDelta24h": 0,
-      "language": "TypeScript",
-      "delta": "新成果"
-    },
-    {
-      "name": "zouyuxuan122/Deepseek-Harness-EAC",
-      "icon": "◈",
-      "score": "Top 11",
-      "description": "DeepSeek Harness (dsh) Windows / Linux desktop client - bundled Node.js + dsh CLI, one-click launch, 10 built-in UI skins. EAC: Embracing All Creation 揽尽万象",
-      "stars": "991",
-      "starDelta24h": 0,
-      "language": "JavaScript",
-      "delta": "新成果"
-    },
-    {
-      "name": "Leutenegger/watermarks-remover",
-      "icon": "◌",
-      "score": "Top 12",
-      "description": "Remove multi-vendor AI provenance traces: Unicode text sanitization, statistical rewriting techniques, and C2PA/metadata stripping from PNG/JPEG/SVG/PDF/DOCX/HTML/MD files",
-      "stars": "916",
-      "starDelta24h": 0,
-      "language": "Python",
       "delta": "新成果"
     }
   ],
