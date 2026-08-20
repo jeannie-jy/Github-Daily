@@ -1,0 +1,14 @@
+{
+  "name": "github-trend-digest",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A personal daily brief for GitHub trends and new open-source releases.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "digest": "node scripts/generate-digest.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
