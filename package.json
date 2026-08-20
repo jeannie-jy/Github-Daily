@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "digest": "node scripts/generate-digest.mjs"
+    "digest": "node scripts/generate-digest.mjs",
+    "notify": "node scripts/send-digest.mjs"
   },
   "engines": {
     "node": ">=20"

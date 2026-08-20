@@ -28,6 +28,18 @@ npm run digest
 
 ## 后续方向
 
-- 接入 Telegram、飞书或邮件推送。
-- 持久化已读仓库，避免重复推荐。
-- 使用兴趣权重和 24 小时 Star 增量替代简单排序。
+## 个性化与推送
+
+- 点击项目卡片的“标为已读”后，该项目会保存在浏览器中且不再推荐；可清除站点数据以重置。
+- 在“编辑兴趣偏好”中为每个主题设置 0–5 权重，列表会根据项目名称和描述中的关键词重新排序。
+- 每日脚本会保存仓库 Star 快照，并在下一次运行时计算 24 小时增长量作为排序优先级。
+
+推送由 `npm run notify` 负责，未配置任一渠道时会安全跳过。把所需凭据设为 GitHub Actions Secrets（不要提交 `.env`）：
+
+| 渠道 | 必需 Secrets |
+| --- | --- |
+| Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` |
+| 飞书机器人 | `FEISHU_WEBHOOK_URL` |
+| 邮件（Resend） | `RESEND_API_KEY`、`EMAIL_FROM`、`EMAIL_TO` |
+
+可复制 [.env.example](.env.example) 作为本地配置参考。Telegram 使用 Bot API 的 `sendMessage`；邮件通过 Resend 的发送接口，发件域名需在 Resend 验证。[Telegram Bot API](https://core.telegram.org/bots/api) 和 [Resend Email API](https://resend.com/docs/api-reference/emails/send-email) 提供了相应说明。
